@@ -1,0 +1,1206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* ده السطر السحري */
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth; /* عشان السكرول يبقى ناعم */
+}
+
+/* 1. إعدادات الألوان والخطوط العامة */
+:root {
+    --bg-color: #121212;      /* الأسود الغامق للخلفية */
+    --text-color: #ffffff;    /* الأبيض للنصوص */
+    --accent-color: #FD6F00;  /* البرتقالي المميز */
+    --gray-text: #b3b3b3;     /* لون رمادي للنصوص الفرعية */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* نوع خط مودرن */
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden; /* عشان ميبقاش فيه سكرول بالعرض */
+}
+/* 2. تصميم القائمة العلوية (Navbar) */
+.navbar {
+    display: flex;
+    /* غيرنا دي لـ flex-end عشان يزق زرار Hire Me لليمين خالص */
+    justify-content: flex-end; 
+    align-items: center;
+    padding: 20px 8%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: var(--bg-color);
+    z-index: 1000;
+}
+
+/* تنسيق اللوجو (حتى لو مسحته سيب الكود ده مش هيضر) */
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text-color);
+    /* لو قررت ترجع اللوجو في المستقبل، ضيف دي عشان يفضل ع الشمال */
+    margin-right: auto; 
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+/* --- التعديل الأهم هنا (توسيط اللينكات) --- */
+.nav-links {
+    position: absolute; /* بنفصلها عن التوزيع العادي */
+    left: 50%; /* بنحركها لنص الشاشة */
+    transform: translateX(-50%); /* بنظبط التوسيط عشان يبقى دقيق 100% */
+    display: flex;
+    gap: 30px;
+    list-style: none; /* عشان يشيل النقط لو موجودة */
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+    text-decoration: none; /* عشان يشيل الخط اللي تحت الكلام */
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-color);
+}
+
+/* 3. تصميم الأزرار (Buttons) */
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    border: 2px solid var(--accent-color);
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: transparent; /* يفرغ اللون ويبقى برواز بس */
+    color: var(--accent-color);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid white;
+    margin-left: 15px;
+}
+
+.btn-outline:hover {
+    background-color: white;
+    color: black;
+    border-color: white;
+}
+
+/* 4. تصميم القسم الرئيسي (Hero Section) */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh; /* الصفحة تملأ الشاشة بالطول */
+    padding: 0 8%;
+    padding-top: 70px; /* عشان القائمة مابتغطيش الكلام */
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-content h4 {
+    font-size: 20px;
+    color: var(--gray-text);
+}
+
+.hero-content h1 {
+    font-size: 60px;
+    margin: 10px 0;
+    line-height: 1.1;
+}
+
+.hero-content h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.hero-content h3 span {
+    color: var(--accent-color); /* كلمة CS Grad هتبقى برتقالي */
+}
+
+.description {
+    color: var(--gray-text);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+/* 5. أيقونات السوشيال ميديا */
+.social-icons {
+    margin-bottom: 30px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255,255,255,0.2); /* دايرة شفافة */
+    border-radius: 50%;
+    color: var(--gray-text);
+    margin-right: 15px;
+    transition: 0.3s;
+    font-size: 18px;
+}
+
+.social-icons a:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+/* 6. صندوق الإحصائيات (الأرقام) */
+.stats-box {
+    display: flex;
+    gap: 40px;
+    margin-top: 50px;
+    background: #1e1e1e; /* خلفية أفتح سنة بسيطة */
+    padding: 20px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.stat h2 {
+    font-size: 28px;
+    color: var(--accent-color);
+}
+
+.stat p {
+    font-size: 14px;
+    color: var(--gray-text);
+}
+
+/* 7. الصورة والدائرة الخلفية */
+.hero-image {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.img-bg-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #222; /* لون الدائرة الغامقة ورا الصورة */
+    border-radius: 50%;
+    z-index: -1;
+    top: 20px; /* تظبيط مكان الدائرة */
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    /* فلتر عشان الصورة تكون أبيض وأسود شوية زي الديزاين (اختياري) */
+    filter: grayscale(100%); 
+    transition: 0.3s;
+}
+
+.hero-image img:hover {
+    filter: grayscale(0%); /* لما تقف عليها ترجع ملونة */
+}
+
+/* =========================================
+   تنسيق صفحة الخدمات (Services Page)
+   ========================================= */
+
+.services-section {
+    padding: 120px 8% 50px; /* مسافة من فوق عشان الـ Navbar */
+    text-align: center;
+}
+
+.section-header h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.section-header p {
+    color: var(--gray-text);
+    margin-bottom: 50px;
+}
+
+/* الحاوية (شبكة الكروت) */
+.services-container {
+    display: grid;
+    /* الكود السحري اللي بيخلي الكروت تترتب أوتوماتيك (3 في الصف للشاشات الكبيرة) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+}
+
+/* تصميم الكارت الواحد */
+.service-card {
+    background-color: #1e1e1e; /* لون رمادي غامق زي الصورة */
+    padding: 40px 30px;
+    border-radius: 15px;
+    transition: 0.3s ease;
+    border: 1px solid transparent; /* برواز شفاف في الأول */
+}
+
+/* حركة لما تقف بالماوس على الكارت */
+.service-card:hover {
+    transform: translateY(-10px); /* يطلع لفوق */
+    border-color: var(--accent-color); /* البرواز ينور برتقالي */
+    background-color: #252525; /* يفتح سنة بسيطة */
+}
+
+/* تصميم الأيقونة البرتقالي */
+.service-card .icon {
+    font-size: 50px;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.service-card p {
+    color: var(--gray-text);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   تنسيق صفحة "عني" (About Page)
+   ========================================= */
+
+.about-section {
+    padding: 120px 8% 50px;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 80px; /* مسافة بين التعريف والمهارات */
+}
+
+/* تنسيق الصورة */
+.about-img img {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(253, 111, 0, 0.3); /* توهج بسيط برتقالي حول الصورة */
+}
+
+/* تنسيق النصوص */
+.about-text h4 {
+    font-size: 20px;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.about-text h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.about-text p {
+    color: var(--gray-text);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* المعلومات الشخصية (إيميل ومكان) */
+.about-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.about-info .info-item p {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.about-info strong {
+    color: var(--accent-color);
+}
+
+/* --- تنسيق قسم المهارات (Skills) --- */
+.skills-title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 40px;
+    color: var(--text-color);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* عمودين جنب بعض */
+    gap: 40px;
+}
+
+.skill-box .title {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+/* الشريط الرمادي الخلفي */
+.skill-bar {
+    height: 8px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+}
+
+/* الشريط الملون المتحرك */
+.skill-per {
+    position: relative;
+    display: block;
+    height: 100%;
+    background: var(--accent-color);
+    border-radius: 6px;
+    /* الأنميشن */
+    animation: fillBars 2.5s 1;
+}
+
+/* تحديد النسب المئوية لكل مهارة */
+.skill-per.python { width: 90%; }
+.skill-per.sql { width: 85%; }
+.skill-per.powerbi { width: 95%; }
+.skill-per.ml { width: 70%; }
+.skill-per.deeplearning { width: 65%; }
+.skill-per.excel { width: 90%; }
+
+/* الرقم المكتوب فوق الشريط (Tooltip) */
+.skill-per .tooltip {
+    position: absolute;
+    right: -14px;
+    top: -35px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-color);
+    background: var(--accent-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* السهم الصغير تحت الرقم */
+.skill-per .tooltip::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    height: 10px;
+    width: 10px;
+    z-index: -1;
+    background-color: var(--accent-color);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+/* تعريف الحركة (Animation Keyframes) */
+@keyframes fillBars {
+    0% { width: 0; }
+    100% { width: width; }
+}
+
+/* للتجاوب مع الموبايل (عشان الصورة والنص يجوا تحت بعض مش جنب بعض) */
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-img img {
+        width: 100%;
+        max-width: 400px;
+    }
+    .about-info {
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   COMPACT DARK PORTFOLIO DESIGN
+   تم تعديل الأحجام لتكون صغيرة وأنيقة
+   ========================================= */
+
+/* 1. خلفية القسم */
+.portfolio-section {
+    padding: 80px 9%; /* تقليل الحواف الخارجية قليلاً */
+    background: #111111; 
+    min-height: 100vh;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 3rem; /* تصغير العنوان الرئيسي */
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    font-size: 1.4rem;
+    color: #888; 
+}
+
+/* 2. الشبكة (Grid) - كروت متراصة */
+.portfolio-container {
+    display: grid;
+    /* 250px عرض مناسب جداً للكروت الصغيرة */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; 
+}
+
+/* 3. تصميم الكارت نفسه */
+.portfolio-card {
+    background: #1c1c1c; /* رمادي غامق */
+    border-radius: 15px; /* تدويرة ناعمة */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-8px); /* حركة بسيطة لأعلى */
+}
+
+/* 4. منطقة الصورة (ارتفاع صغير) */
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 150px; /* ارتفاع صغير (Compact) */
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+/* 5. الـ Overlay وزرار GitHub */
+.overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* تعتيم قوي */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.portfolio-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.portfolio-card:hover .overlay {
+    opacity: 1;
+}
+
+/* تنسيق الزر (صغير) */
+.github-pill-btn {
+    text-decoration: none;
+    background: #fff;
+    color: #000;
+    padding: 8px 18px; /* زرار ملموم */
+    border-radius: 50px;
+    font-size: 1rem; /* خط صغير */
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transform: translateY(15px);
+    transition: 0.4s ease;
+}
+
+.portfolio-card:hover .github-pill-btn {
+    transform: translateY(0);
+}
+
+.github-pill-btn:hover {
+    background: #e6e6e6;
+    transform: scale(1.05);
+}
+
+/* 6. منطقة المحتوى والنصوص (صغيرة) */
+.card-content {
+    padding: 15px; /* هوامش داخلية صغيرة */
+    text-align: left;
+}
+
+.card-content h3 {
+    font-size: 1.3rem; /* عنوان صغير وأنيق */
+    color: #ffffff;
+    margin-bottom: 5px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.tech-stack {
+    font-size: 0.8rem; /* خط التقنيات صغير جداً (Minimal) */
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.portfolio-card:hover .tech-stack {
+    color: #ff7b00; /* لمسة برتقالي عند الوقوف */
+    transition: 0.3s;
+}
+
+
+/* =========================================
+   تنسيق صفحة "الشهادات" (Certificates Page)
+   ========================================= */
+
+/* =========================================
+   CERTIFICATES SECTION DESIGN
+   ========================================= */
+
+/* خلفية الصفحة بالكامل */
+.certificates-section {
+    padding: 100px 9%;
+    background: #111111; /* خلفية سوداء */
+    min-height: 100vh;
+}
+
+/* الشبكة (Grid) للكروت */
+.cert-container {
+    display: grid;
+    /* نفس حجم كروت المشاريع ليكون الموقع متناسق */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* تصميم كارت الشهادة */
+.cert-card {
+    background: #1c1c1c; /* لون الكارت رمادي غامق */
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative; /* عشان الرابط يغطي الكارت */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #333; /* حدود خفيفة جداً */
+}
+
+/* تأثير الـ Hover */
+.cert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(255, 123, 0, 0.1); /* ظل برتقالي خفيف جداً */
+    border-color: #ff7b00; /* الحواف تقلب برتقالي عند اللمس */
+}
+
+/* 1. منطقة صورة الشهادة */
+.cert-img {
+    width: 100%;
+    height: 180px; /* ارتفاع مناسب لعرض الشهادة */
+    background: #000;
+    border-bottom: 2px solid #333;
+}
+
+.cert-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* عشان تملأ المكان وشكلها يبقى شيك */
+    transition: 0.5s ease;
+    opacity: 0.8; /* تغميق بسيط للصورة */
+}
+
+.cert-card:hover .cert-img img {
+    opacity: 1; /* الصورة تنور لما تقف عليها */
+    transform: scale(1.05); /* زووم خفيف */
+}
+
+/* 2. محتوى الشهادة */
+.cert-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cert-content h3 {
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.cert-content .provider {
+    font-size: 1rem;
+    color: #bbb; /* لون رمادي فاتح لاسم الجهة */
+    font-weight: 500;
+}
+
+.cert-content .date {
+    font-size: 0.9rem;
+    color: #666; /* لون أغمق للتاريخ */
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* 3. رابط التحقق (Verify Link) */
+.verify-link {
+    font-size: 1rem;
+    color: #ff7b00; /* اللون البرتقالي الأساسي */
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+    width: fit-content;
+    z-index: 2; /* عشان يظهر فوق الرابط الشفاف */
+    position: relative;
+}
+
+.verify-link:hover {
+    color: #fff; /* يقلب أبيض عند اللمس */
+    transform: translateX(5px); /* يتحرك يمين سنة */
+}
+
+/* رابط شفاف يغطي الكارت بالكامل (عشان لما تدوس في أي حتة يفتح) */
+.cert-link-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+
+/* =========================================
+   تنسيق صفحة "التواصل" (Contact Page)
+   ========================================= */
+
+.contact-section {
+    padding: 120px 8% 50px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap; /* عشان في الموبايل يجوا تحت بعض */
+}
+
+/* تنسيق معلومات الاتصال (الشمال) */
+.contact-info {
+    flex-basis: 35%; /* تاخد 35% من العرض */
+}
+
+.contact-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.contact-box .icon {
+    width: 50px;
+    height: 50px;
+    background: #1e1e1e;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: var(--accent-color);
+    transition: 0.3s;
+}
+
+.contact-box:hover .icon {
+    background: var(--accent-color);
+    color: white;
+}
+
+.contact-box .text h3 {
+    font-size: 18px;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.contact-box .text p {
+    color: var(--gray-text);
+    font-size: 14px;
+}
+
+.social-links-contact {
+    margin-top: 40px;
+}
+
+.social-links-contact a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: #1e1e1e;
+    color: var(--gray-text);
+    border-radius: 50%;
+    margin-right: 15px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.social-links-contact a:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* تنسيق الفورم (اليمين) - زي الصورة */
+.contact-form {
+    flex-basis: 60%; /* تاخد 60% من العرض */
+}
+
+.input-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* شكل الخانات (Input Fields) */
+.contact-form input, 
+.contact-form select, 
+.contact-form textarea {
+    width: 100%;
+    background: #1e1e1e; /* خلفية رمادي غامق */
+    border: 1px solid transparent;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* لما تضغط جوه الخانة */
+.contact-form input:focus, 
+.contact-form select:focus, 
+.contact-form textarea:focus {
+    border-color: var(--accent-color); /* البرواز ينور برتقالي */
+    background: #252525;
+}
+
+.contact-form textarea {
+    resize: none; /* يمنع تغيير حجم المربع */
+    margin-bottom: 20px;
+}
+
+/* زرار الإرسال */
+.contact-form button {
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* الزرار بعرض الفورم */
+}
+
+/* التذييل البسيط في الآخر */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    color: var(--gray-text);
+    font-size: 14px;
+    margin-top: 50px;
+}
+
+/* للموبايل */
+@media (max-width: 900px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    .contact-info, .contact-form {
+        flex-basis: 100%;
+    }
+    .input-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+
+
+/* =========================================
+   تنسيق الصورة الدائرية (Hero Image) - تعديل الألوان والهوفر
+   ========================================= */
+
+/* الحاوية الخارجية */
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1; /* لضمان ظهورها فوق أي خلفية */
+}
+
+/* الدائرة نفسها (الإطار) */
+.img-bg-circle {
+    width: 380px;   /* حجم الدائرة (ممكن تصغره لو حابب) */
+    height: 380px;
+    border-radius: 50%; /* شكل دائري */
+    overflow: hidden;   /* قص الصورة داخل الدائرة */
+
+    /* --- التعديل الأول: تغيير الإضاءة الخارجية للبرتقالي --- */
+    /* كان أزرق #0ef وغيرناه للبرتقالي #ff7b00 */
+    border: 3px solid #ff7b00;
+    /* جعلت الظل أنعم باستخدام rgba للشفافية */
+    box-shadow: 0 0 30px rgba(255, 123, 0, 0.5),
+                0 0 60px rgba(255, 123, 0, 0.2);
+
+    transition: all 0.4s ease-in-out; /* تنعيم الحركة */
+}
+
+/* تنسيق الصورة داخل الدائرة */
+.img-bg-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ملء الإطار بدون تمطيط */
+    object-position: top center; /* ضبط التركيز على أعلى الصورة */
+    transition: all 0.5s ease; /* تنعيم تأثير الهوفر على الصورة */
+}
+
+/* --- التعديل الثاني: تأثير الهوفر (لما الماوس يقف على الدائرة) --- */
+
+/* 1. تأثير على الإطار الخارجي عند الهوفر (اختياري: يزيد التوهج قليلاً) */
+.img-bg-circle:hover {
+    box-shadow: 0 0 40px rgba(255, 123, 0, 0.7),
+                0 0 80px rgba(255, 123, 0, 0.3);
+}
+
+/* 2. تأثير على الصورة نفسها (الإضاءة الخفيفة المطلوبة) */
+.img-bg-circle:hover img {
+    /* brightness(1.1): يزود سطوع الصورة قليلاً */
+    /* drop-shadow: يعمل ضي برتقالي حوالين ملامح الشخص داخل الصورة */
+    filter: brightness(1.1) drop-shadow(0 0 15px rgba(255, 123, 0, 0.8));
+
+    transform: scale(1.03); /* زووم بسيط جداً لإحساس التفاعل */
+}
+
+
+
+/* =========================================
+   EXPERIENCE SECTION (TIMELINE DESIGN)
+   ========================================= */
+
+.experience-section {
+    padding: 100px 9%;
+    background: #111111; /* خلفية سوداء */
+    min-height: 100vh;
+}
+
+/* تنسيق خط الزمن */
+.timeline {
+    position: relative;
+    max-width: 800px; /* عرض مناسب للقراءة */
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* الخط الرأسي البرتقالي */
+.timeline::after {
+    content: '';
+    position: absolute;
+    left: 0; /* مكان الخط على الشمال */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ff7b00; /* لون الخط برتقالي */
+}
+
+/* العنصر الواحد (الخبرة) */
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    padding-left: 40px; /* مسافة عشان نبعد عن الخط */
+}
+
+/* النقطة المضيئة على الخط */
+.timeline-dot {
+    position: absolute;
+    left: -6px; /* ضبط مكان النقطة على الخط */
+    top: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ff7b00; /* نقطة برتقالي */
+    box-shadow: 0 0 10px #ff7b00; /* توهج */
+}
+
+/* بوكس المحتوى (الكارت) */
+.timeline-content {
+    background: #1c1c1c; /* لون الكارت رمادي غامق */
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #333; /* حدود خفيفة */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: 0.3s ease;
+    position: relative;
+}
+
+/* سهم صغير طالع من الكارت ناحية الخط */
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 5px;
+    width: 0; 
+    height: 0; 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #1c1c1c; /* لون السهم نفس لون الكارت */
+}
+
+/* تأثير الهوفر */
+.timeline-item:hover .timeline-content {
+    transform: translateY(-5px);
+    border-color: #ff7b00; /* الحواف تقلب برتقالي */
+    box-shadow: 0 10px 20px rgba(255, 123, 0, 0.1);
+}
+
+/* تنسيق النصوص */
+.timeline-content .date {
+    font-size: 0.9rem;
+    color: #ff7b00; /* التاريخ بالبرتقالي */
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.timeline-content h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.timeline-content .company {
+    display: block;
+    font-size: 1.1rem;
+    color: #aaa; /* اسم الشركة رمادي فاتح */
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    color: #ddd; /* لون الوصف */
+    line-height: 1.6;
+}
+
+
+/* تنسيق الجملة المتحركة */
+.welcome-text {
+    color: #ff7b00; /* اللون البرتقالي */
+    font-weight: 700;
+    /* ممكن تزود حجم الخط لو حابب */
+    /* font-size: 3rem; */
+}
+
+
+/* تنسيق المسمى الوظيفي الجديد */
+.job-title {
+    font-size: 1.8rem; /* حجم خط متوسط ومناسب */
+    font-weight: 600;
+    color: #ffffff; /* اللون الأساسي أبيض */
+    margin-bottom: 10px; /* مسافة صغيرة قبل الجملة المتحركة */
+    letter-spacing: 1px; /* تباعد بسيط بين الحروف للقراءة */
+}
+
+/* (اختياري) تمييز الجزء الثاني بلون مختلف */
+/* لو حابب تخلي كلمة Data Scientist بلون برتقالي زي الثيم */
+/* يتطلب تعديل بسيط في HTML بإضافة span حول الكلمة */
+
+
+
+
+/* تنسيق المسمى الوظيفي (تصغير بسيط) */
+.job-title {
+    font-size: 1.6rem; /* صغرناه شوية لتقليل الزحمة */
+    font-weight: 600;
+    color: #e0e0e0; /* رمادي فاتح بدل الأبيض الصريح */
+    margin-bottom: 15px; /* مسافة تحت الوظيفة */
+}
+
+/* تنسيق الجملة المتحركة */
+.typing-container {
+    font-size: 1.4rem; /* حجم مناسب */
+    min-height: 50px; /* يحجز مكان عشان الصفحة متنطش لما الكلام يتمسح */
+    margin-bottom: 25px; /* مسافة قبل أيقونات السوشيال */
+    line-height: 1.5;
+}
+
+.welcome-text {
+    color: #ff7b00; /* اللون البرتقالي */
+    font-weight: 500;
+}
+
+/* تعديل المسافات العامة في الهيرو */
+.hero-content h1 {
+    font-size: 3.5rem; /* تكبير الاسم */
+    margin-bottom: 5px; /* تقليل المسافة بين الاسم والوظيفة */
+    line-height: 1.1;
+}
+
+
+/* =========================================
+   تنسيقات الموبايل والتابلت (Media Queries)
+   هذا الكود يشتغل فقط على الشاشات الصغيرة
+   ========================================= */
+
+@media (max-width: 991px) {
+    /* 1. تظبيط الهوامش الجانبية عشان المحتوى ميكونش لازق في الحف */
+    .navbar, 
+    .hero, 
+    .portfolio-section, 
+    .contact-section,
+    .experience-section,
+    .services-section {
+        padding: 2rem 4%; /* تقليل الهوامش */
+    }
+
+    /* 2. تظبيط الناف بار على الموبايل */
+    .navbar {
+        flex-direction: column; /* العناصر تيجي تحت بعض */
+        gap: 20px;
+        position: relative; /* عشان نلغي التثبيت لو مضايقك */
+        background: #000;
+        height: auto;
+    }
+
+    .nav-links {
+        position: static; /* نلغي التوسيط المعقد */
+        transform: translate(0, 0);
+        flex-wrap: wrap; /* اللينكات تنزل سطر جديد لو مفيش مكان */
+        justify-content: center;
+        gap: 15px; /* مسافات أصغر */
+        margin-top: 10px;
+    }
+
+    .btn {
+        margin-top: 10px; /* زرار Hire Me ينزل شوية */
+    }
+
+    /* 3. تظبيط أول صفحة (Hero Section) */
+    .hero {
+        flex-direction: column-reverse; /* الصورة تطلع فوق والكلام ينزل تحت */
+        padding-top: 100px; /* مساحة عشان الناف بار */
+        text-align: center; /* توسيط الكلام */
+        height: auto;
+        gap: 30px;
+    }
+
+    .hero-content {
+        align-items: center; /* توسيط العناصر */
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem; /* تصغير اسمك شوية عشان الموبايل */
+    }
+
+    .job-title {
+        font-size: 1.4rem;
+    }
+
+    /* 4. تصغير الصورة الدائرية شوية */
+    .img-bg-circle {
+        width: 300px;
+        height: 300px;
+    }
+    
+    /* 5. تظبيط خط الزمن (Experience) */
+    .timeline::after {
+        left: 31px; /* تحريك الخط شوية */
+    }
+    .timeline-item {
+        padding-left: 60px;
+    }
+}
+
+/* للموبايلات الصغيرة جداً */
+@media (max-width: 450px) {
+    html {
+        font-size: 55%; /* تصغير الخط العام للموقع */
+    }
+    
+    .img-bg-circle {
+        width: 260px;
+        height: 260px;
+    }
+}
+
+
+
+/* تنسيق الحاوية الرئيسية للوجو */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* مسافة بين الأيقونة والاسم */
+    text-decoration: none;
+    font-size: 1.8rem; /* حجم اللوجو */
+    font-weight: 800; /* خط سميك جداً عشان التدرج يبان */
+}
+
+/* تنسيق الأيقونة (الرسم البياني) - لون ثابت */
+.logo i {
+    color: #ff7b00; /* لون الأيقونة برتقالي صريح */
+    font-size: 2rem;
+}
+
+/* تنسيق النص (MAZEN) - التدرج اللوني */
+.logo-text {
+    /* 1. التدرج اللوني (من أبيض على الشمال لبرتقالي على اليمين) */
+    background: linear-gradient(to right, #ffffff, #ff7b00);
+    
+    /* 2. قص الخلفية المتدرجة دي على شكل الحروف */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* 3. جعل لون النص الأصلي شفاف عشان الخلفية المتدرجة تظهر */
+    color: transparent;
+    
+    /* اختياري: إضافة توهج خفيف (Glow) */
+    filter: drop-shadow(0 0 5px rgba(255, 123, 0, 0.3));
+    
+    transition: 0.3s;
+}
+
+/* لما الماوس يقف على اللوجو */
+.logo:hover .logo-text {
+    /* نعكس التدرج أو نزود التوهج */
+    filter: drop-shadow(0 0 10px rgba(255, 123, 0, 0.8));
+}

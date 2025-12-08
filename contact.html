@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me | Mazen Ashraf</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <i class="fas fa-chart-pie"></i> <span class="logo-text">MAZEN</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn">Hire Me</a>
+    </nav>
+
+    <section class="contact-section">
+        <div class="section-header">
+            <h2>Contact Me</h2>
+            <p>Cultivating Connections: Reach Out And Connect With Me.</p>
+        </div>
+
+        <div class="contact-container">
+            
+            <div class="contact-info">
+                <div class="contact-box">
+                    <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="text">
+                        <h3>Location</h3>
+                        <p>El-Maadi, Cairo, Egypt</p>
+                    </div>
+                </div>
+
+                <div class="contact-box">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>mazenashraf6363@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-box">
+                    <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>+20 01204704152</p>
+                    </div>
+                </div>
+                
+                <div class="social-links-contact">
+                    <a href="https://www.linkedin.com/in/mazen--ashraf" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/mazen787" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <form action="https://formspree.io/f/xovglnnk" method="POST" class="contact-form">
+                <div class="input-row">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                
+                <div class="input-row">
+                    <input type="text" name="phone" placeholder="Phone Number">
+                    
+                    <select name="service">
+                        <option value="" disabled selected>Service Of Interest</option>
+                        <option value="data-analysis">Data Analysis</option>
+                        <option value="dashboard">Dashboard Creation</option>
+                        <option value="ml">Machine Learning Model</option>
+                        <option value="training">Training / Instructor</option>
+                    </select>
+                </div>
+
+                <textarea name="message" placeholder="Project Details..." rows="6" required></textarea>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>Designed by Mazen Ashraf © 2025</p>
+    </footer>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+
+</body>
+</html>
